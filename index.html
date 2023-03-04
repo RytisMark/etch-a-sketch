@@ -2,17 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
+    <link rel="icon" type="image/x-icon" href="https://user-images.githubusercontent.com/39343969/222897764-f2bd1321-dad7-4186-a503-7409cd7bdd66.png">
 </head>
 <body>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 
-    <div class="game-info">
-        <button class="ask-num">Press me!</button>
+    <header>Etch-a-sketch</header>
+    <div class="board">
+        <div class="board-controls">
+            <div class="slider-controls">
+                <input class="size-slider" type="range" value="16" min="4" max="64">
+                <div class="slider-text">16 x 16</div>
+            </div>
+            <button class="btn-draw">Pencil</button>
+            <button class="btn-eraser">Eraser</button>
+            <button class="btn-clear">Clear</button>
+        </div>
         <div class="grid-map"></div>
     </div>
+    <a href="https://www.github.com/RytisMark" target="_blank" class="footer">RytisMark@GitHub</a>
 </body>
 </html>

@@ -1,16 +1,56 @@
-body {
-    background-color: brown;
+html, body {
+    background-color: #E7ECEF;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.game-info {
+header {
+    color: #333333;
+    margin: 24px 0px 48px;
+    font-size: 64px;
+    font-weight: 700;
+}
+
+.board {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 12px;
-    /* width: fit-content; */
+    flex-wrap: wrap;
+    gap: 24px;
 }
-.ask-num {
-    width: fit-content;
+
+.board-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.slider-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 24px;
+  transition: all 0.3s cubic-bezier(.23, 1, 0.32, 1);
+  width: fit-content;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
 }
 
 :root {
@@ -18,19 +58,28 @@ body {
     --grid-cols: 1;
   }
   
-  .grid-map {
-    display: grid;
+.grid-map {
     background-color: white;
+    display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
+    height: 480px;
+    width: 480px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24);
   }
   
-  .grid-item {
-    padding: 24px;
-    border: 1px solid black;
+.grid-item {
     text-align: center;
-  }
+    user-select: none;
+}
 
-  .colored-grid {
-    background-color: gray;
-  }
+.colored-grid-item {
+    background-color: #333333;
+}
+
+a {
+    margin-top: auto;
+    font-size: 24px;
+    color: #333333;;
+    text-decoration: none;
+}
