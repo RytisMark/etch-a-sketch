@@ -16,8 +16,16 @@ let whichTool = "pencil";
 
 sizeSlider.oninput = changeGridMapSize;
 btnClear.onclick = clearGridMap;
-btnPencil.onclick = () => whichTool = 'pencil';
-btnEraser.onclick = () => whichTool = 'eraser';
+btnPencil.onclick = () => {
+    whichTool = 'pencil';
+    btnEraser.classList.remove('active');
+    btnPencil.classList.add('active');
+}
+btnEraser.onclick = () => {
+    whichTool = 'eraser';
+    btnPencil.classList.remove('active');
+    btnEraser.classList.add('active');
+}
 btnToggleGrid.onclick = toggleGridLines;
 
 createGridMap(numOfRows, numOfCols);
