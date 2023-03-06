@@ -56,10 +56,7 @@ function changeGridMapSize() {
     sliderText.textContent = `${this.value} x ${this.value}`;
     numOfRows = this.value;
     numOfCols = this.value;
-
-    removeGridMap();
-    createGridMap(numOfRows, numOfCols);
-    toggleGridLines();
+    clearGridMap();
 
     let value = (this.value - this.min) / (this.max - this.min) * 100;
     this.style.background = 'linear-gradient(to right, #333333 0%, #333333 ' + value + '%, #fff ' + value + '%, white 100%)';
