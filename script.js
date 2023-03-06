@@ -12,6 +12,8 @@ let numOfCols = 16;
 let isDragOn = false;
 let isGridOn = false;
 let whichTool = "pencil";
+btnPencil.classList.add('active');
+
 
 
 sizeSlider.oninput = changeGridMapSize;
@@ -29,6 +31,8 @@ btnEraser.onclick = () => {
 btnToggleGrid.onclick = toggleGridLines;
 
 createGridMap(numOfRows, numOfCols);
+sizeSlider.dispatchEvent(new Event('input'));
+
 
 function toggleGridLines() {
     for (let i = 0; i < grids.length; i++) {
@@ -74,4 +78,7 @@ function changeGridMapSize() {
     removeGridMap();
     createGridMap(numOfRows, numOfCols);
     toggleGridLines();
+
+    let value = (this.value - this.min) / (this.max - this.min) * 100;
+    this.style.background = 'linear-gradient(to right, #333333 0%, #333333 ' + value + '%, #fff ' + value + '%, white 100%)';
 }
