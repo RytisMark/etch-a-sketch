@@ -11,36 +11,18 @@ let numOfRows = 16;
 let numOfCols = 16;
 let isDragOn = false;
 let isGridOn = false;
-let whichTool = "pencil";
-btnPencil.classList.add('active');
-
-
+let whichTool;
 
 sizeSlider.oninput = changeGridMapSize;
 btnClear.onclick = clearGridMap;
-btnPencil.onclick = () => {
-    whichTool = 'pencil';
-    btnEraser.classList.remove('active');
-    btnPencil.classList.add('active');
-}
-btnEraser.onclick = () => {
-    whichTool = 'eraser';
-    btnPencil.classList.remove('active');
-    btnEraser.classList.add('active');
-}
+btnPencil.onclick = () => useTool("pencil");
+btnEraser.onclick = () => useTool("eraser");
 btnToggleGrid.onclick = toggleGridLines;
 
 createGridMap(numOfRows, numOfCols);
 sizeSlider.dispatchEvent(new Event('input'));
+useTool("pencil");
 
-
-function toggleGridLines() {
-    for (let i = 0; i < grids.length; i++) {
-        if (!isGridOn) grids[i].setAttribute('style', 'border: 0.5px solid black;');
-        else grids[i].removeAttribute('style');
-    }
-    isGridOn = !isGridOn;
-}
 
 function createGridMap(rows, cols) {
     gridMap.style.setProperty('--grid-rows', rows);
@@ -81,4 +63,23 @@ function changeGridMapSize() {
 
     let value = (this.value - this.min) / (this.max - this.min) * 100;
     this.style.background = 'linear-gradient(to right, #333333 0%, #333333 ' + value + '%, #fff ' + value + '%, white 100%)';
+}
+
+function useTool(tool) {
+    whichTool = tool;
+    if (whichTool === "pencil") {
+        btnEraser.classList.remove('activated');
+        btnPencil.classList.add('activated');
+    } else if (whichTool === "eraser") {
+        btnPencil.classList.remove('activated');
+        btnEraser.classList.add('activated');
+    }
+}
+
+function toggleGridLines() {
+    for (let i = 0; i < grids.length; i++) {
+        if (!isGridOn) grids[i].setAttribute('style', 'border: 0.5px solid black;');
+        else grids[i].removeAttribute('style');
+    }
+    isGridOn = !isGridOn;
 }
